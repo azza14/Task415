@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DemoTasks.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div class="panel panel-primary" style="margin: 10px">
+    <div class="panel-heading panel-head">Category Listing</div>
+    <div class="panel-body">
+        <a  href="@Url.Action("Create")" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span> Category
+        </a>
+        <table class="table table-hover  table-responsive" style="margin: 4px">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th> Actions</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>

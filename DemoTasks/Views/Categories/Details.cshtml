@@ -1,0 +1,44 @@
+﻿@model DemoTasks.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-primary" style="margin: 20px">
+    <div class="panel-heading panel-head">Category Details</div>
+    <div class="panel-body">
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CategorName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CategorName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>
+        @using (Html.BeginForm())
+            {
+            <div class="form-group">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-9">
+                    @Html.ActionLink("Edit", "Edit", new { id = ViewContext.RouteData.Values["id"] },
+                                  new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+
